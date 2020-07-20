@@ -1,33 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import { withAuthenticator, SumerianScene  } from 'aws-amplify-react';
 import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
+import Aws_exports from './aws-exports';
+import '@aws-amplify/ui/dist/style.css';
 
+Amplify.configure(Aws_exports);
 
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-Amplify.configure(aws_exports);
+class App extends Component {
+  render() {
+    return (
+      <div style={ { height: '100vh' } }>
+        <SumerianScene sceneName='SuppBotScene'/>
+      </div>
+    );
+  }
+};
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          SEND NUDES PLS. WE IS FAILING
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default withAuthenticator(App, true);
-
+export default withAuthenticator(App, { includeGreetings: true });

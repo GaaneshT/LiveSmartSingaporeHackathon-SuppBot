@@ -24,5 +24,11 @@
 			"dependsOn": [],
 			"customAuth": false
 		}
+	},
+	"xr": {
+		"SuppBotScene": {
+			"service": "Sumerian",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }
