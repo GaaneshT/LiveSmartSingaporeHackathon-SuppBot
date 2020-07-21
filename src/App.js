@@ -1,20 +1,49 @@
-import React, {Component} from 'react';
-import './App.css';
-import { withAuthenticator, SumerianScene  } from 'aws-amplify-react';
-import Amplify from 'aws-amplify';
-import Aws_exports from './aws-exports';
-import '@aws-amplify/ui/dist/style.css';
+import React, { Component } from 'react';
+import Amplify, { Interactions } from 'aws-amplify';
+import { ChatBot, AmplifyTheme, withAuthenticator } from 'aws-amplify-react';
+import awsconfig from './aws-exports';
 
-Amplify.configure(Aws_exports);
 
-class App extends Component {
-  render() {
-    return (
-      <div style={ { height: '100vh' } }>
-        <SumerianScene sceneName='TestUS1'/>
-      </div>
-    );
+Amplify.configure(awsconfig);
+
+// Imported default theme can be customized by overloading attributes
+const myTheme = {
+  ...AmplifyTheme,
+  sectionHeader: {
+    ...AmplifyTheme.sectionHeader,
+    backgroundColor: '#ff6600'
   }
 };
 
+class App extends Component {
+
+  handleComplete(err, confirmation) {
+    if (err) {
+      alert('Bot conversation failed')
+      return;
+    }
+
+    alert('Success: ' + JSON.stringify(confirmation, null, 2));
+    return 'Trip booked. Thank you! what would you like to do next?';
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Welcome to ChatBot Demo</h1>
+        </header>
+        <ChatBot
+          title="SuppBot"
+          theme={myTheme}
+          botName="BookTrip_dev"
+          welcomeMessage="Welcome! I'm SuppBot, how can I help you today?"
+          onComplete={this.handleComplete.bind(this)}
+          clearOnComplete={true}
+          conversationModeOn={false}
+        />
+      </div>
+    );
+  }
+}
 export default withAuthenticator(App, { includeGreetings: true });
