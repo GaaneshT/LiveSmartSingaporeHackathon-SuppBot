@@ -5,6 +5,6 @@
     "UnauthRoleName": {
         "Ref": "UnauthRoleName"
     },
-    "AuthPolicyName": "sumerian-auth-amplifyzOqVy",
-    "UnauthPolicyName": "sumerian-unauth-amplifyzOqVy"
+    "AuthPolicyName": "sumerian-auth-amplifyT3SMr",
+    "UnauthPolicyName": "sumerian-unauth-amplifyT3SMr"
 }

@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div style={ { height: '100vh' } }>
-        <SumerianScene sceneName='SuppBotScene'/>
+        <SumerianScene sceneName='TestUS1'/>
       </div>
     );
   }
