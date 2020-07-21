@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import Amplify, { Interactions } from 'aws-amplify';
+import Amplify, { Interactions, Storage } from 'aws-amplify';
 import { ChatBot, AmplifyTheme, withAuthenticator } from 'aws-amplify-react';
 import awsconfig from './aws-exports';
+import './App.css';
+import aws_exports from './aws-exports';
 
-
+Amplify.configure(aws_exports);
 Amplify.configure(awsconfig);
 
 // Imported default theme can be customized by overloading attributes
@@ -16,7 +18,27 @@ const myTheme = {
 };
 
 class App extends Component {
+  state = {
+    imageName: "",
+    imageFile: "",
+    response: ""
+  };
 
+  uploadImage = () => {
+    //SetS3Config("amplifys3upload150524-dev", "protected");
+    Storage.put(`userimages/${this.upload.files[0].name}`,
+                this.upload.files[0],
+                { contentType: this.upload.files[0].type })
+      .then(result => {
+        this.upload = null;
+        this.setState({ response: "Success, uploading file!" });
+      })
+      .catch(err => {
+        this.setState({ response: `Cannot upload file: ${err}` });
+      });
+  };
+
+  
   handleComplete(err, confirmation) {
     if (err) {
       alert('Bot conversation failed')
@@ -31,7 +53,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to ChatBot Demo</h1>
+          <h1 className="App-title">Welcome to SuppBot! By Team SPx</h1>
         </header>
         <ChatBot
           title="SuppBot"
@@ -42,6 +64,34 @@ class App extends Component {
           clearOnComplete={true}
           conversationModeOn={false}
         />
+
+<h2>Upload your filled form here</h2>
+        <input
+          type="file"
+          //accept="image/png, image/jpeg, pdf"
+          style={{ display: "none" }}
+          ref={ref => (this.upload = ref)}
+          onChange={e =>
+            this.setState({
+              imageFile: this.upload.files[0],
+              imageName: this.upload.files[0].name
+            })
+          }
+        />
+        <input value={this.state.imageName} placeholder="Select file" />
+        <button
+          onClick={e => {
+            this.upload.value = null;
+            this.upload.click();
+          }}
+          loading={this.state.uploading}
+        >
+          Browse
+        </button>
+
+        <button onClick={this.uploadImage}> Upload File </button>
+
+        {!!this.state.response && <div>{this.state.response}</div>}
       </div>
     );
   }
