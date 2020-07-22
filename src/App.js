@@ -26,7 +26,7 @@ class App extends Component {
 
   uploadImage = () => {
     //SetS3Config("amplifys3upload150524-dev", "protected");
-    Storage.put(`userimages/${this.upload.files[0].name}`,
+    Storage.put(this.upload.files[0].name,
                 this.upload.files[0],
                 { contentType: this.upload.files[0].type })
       .then(result => {
@@ -68,7 +68,7 @@ class App extends Component {
 <h2>Upload your filled form here</h2>
         <input
           type="file"
-          //accept="image/png, image/jpeg, pdf"
+          //accept="image/png, image/jpeg, pdf" This is used to limit to specific file
           style={{ display: "none" }}
           ref={ref => (this.upload = ref)}
           onChange={e =>
