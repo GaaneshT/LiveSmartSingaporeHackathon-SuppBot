@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import Amplify, { Interactions, Storage } from 'aws-amplify';
-import { ChatBot, AmplifyTheme, withAuthenticator } from 'aws-amplify-react';
+import { ChatBot, AmplifyTheme } from 'aws-amplify-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+
 import awsconfig from './aws-exports';
 import './App.css';
 import aws_exports from './aws-exports';
 
 Amplify.configure(aws_exports);
 Amplify.configure(awsconfig);
+Storage.configure({
+customPrefix: {public:''}
+})
 
 // Imported default theme can be customized by overloading attributes
 const myTheme = {
@@ -28,7 +33,8 @@ class App extends Component {
     //SetS3Config("amplifys3upload150524-dev", "protected");
     Storage.put(this.upload.files[0].name,
                 this.upload.files[0],
-                { contentType: this.upload.files[0].type })
+                { contentType: this.upload.files[0].type },
+                )
       .then(result => {
         this.upload = null;
         this.setState({ response: "Success, uploading file!" });
