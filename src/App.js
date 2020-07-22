@@ -9,10 +9,10 @@ import aws_exports from './aws-exports';
 
 Amplify.configure(aws_exports);
 Amplify.configure(awsconfig);
-/*Amplify.configure({
+Amplify.configure({
   Auth: {
-    identityPoolId: 'us-east-1:xxx-xxx-xxx-xxx-xxx',
-    region: 'us-east-1'
+    identityPoolId: 'ap-southeast-1:286acab8-e634-41f2-995b-c143bc6d7200',
+    region: 'ap-southeast-1'
   },
   Interactions: {
     bots: {
@@ -24,7 +24,7 @@ Amplify.configure(awsconfig);
     }
   }
 });
-*/
+
 
 
 
@@ -71,7 +71,7 @@ class App extends Component {
     }
 
     alert('Success: ' + JSON.stringify(confirmation, null, 2));
-    return 'Trip booked. Thank you! what would you like to do next?';
+    return 'Thank you for using SuppBot! Should you require more assistance, Please contact ACRA!';
   }
 
   render() {
@@ -85,7 +85,7 @@ class App extends Component {
         <ChatBot
           title="SuppBot"
           theme={myTheme}
-          botName="OrderFlowers_dev"
+          botName="SuppBot"
           welcomeMessage="Welcome! I'm SuppBot, how can I help you today?"
           onComplete={this.handleComplete.bind(this)}
           clearOnComplete={true}
