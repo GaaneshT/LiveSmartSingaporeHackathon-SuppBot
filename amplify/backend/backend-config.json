@@ -36,6 +36,16 @@
 			"service": "Lex",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"lex2fea5c5e": {
+			"service": "Lex",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		},
+		"lex4d20befa": {
+			"service": "Lex",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	},
 	"storage": {

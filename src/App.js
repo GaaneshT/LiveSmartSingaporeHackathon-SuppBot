@@ -9,6 +9,25 @@ import aws_exports from './aws-exports';
 
 Amplify.configure(aws_exports);
 Amplify.configure(awsconfig);
+/*Amplify.configure({
+  Auth: {
+    identityPoolId: 'us-east-1:xxx-xxx-xxx-xxx-xxx',
+    region: 'us-east-1'
+  },
+  Interactions: {
+    bots: {
+      "SuppBot": {
+        "name": "SuppBot",
+        "alias": "$LATEST",
+        "region": "ap-southeast-1",
+      },
+    }
+  }
+});
+*/
+
+
+
 Storage.configure({
 customPrefix: {public:''}
 })
@@ -59,19 +78,21 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to SuppBot! By Team SPx</h1>
+          <h1 className="App-title">Welcome to SuppBot!</h1>
+          <h2>Live Smart Singapore Hackathon(ACRA)</h2>
+          <h2>By Team SPx</h2>
         </header>
         <ChatBot
           title="SuppBot"
           theme={myTheme}
-          botName="BookTrip_dev"
+          botName="OrderFlowers_dev"
           welcomeMessage="Welcome! I'm SuppBot, how can I help you today?"
           onComplete={this.handleComplete.bind(this)}
           clearOnComplete={true}
           conversationModeOn={false}
         />
 
-<h2>Upload your filled form here</h2>
+<h2 className= 'UploadHeader'>Upload your filled form here</h2>
         <input
           type="file"
           //accept="image/png, image/jpeg, pdf" This is used to limit to specific file
