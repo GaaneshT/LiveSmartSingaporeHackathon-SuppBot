@@ -38,6 +38,7 @@ const myTheme = {
   sectionHeader: {
     ...AmplifyTheme.sectionHeader,
     backgroundColor: '#ff6600'
+    
   }
 };
 
@@ -87,8 +88,8 @@ class App extends Component {
           theme={myTheme}
           botName="SuppBot"
           welcomeMessage="Welcome! I'm SuppBot, how can I help you today?"
-          onComplete={this.handleComplete.bind(this)}
-          clearOnComplete={true}
+          //onComplete={this.handleComplete.bind(this)}
+          clearOnComplete={false}
           conversationModeOn={false}
         />
 
@@ -119,6 +120,11 @@ class App extends Component {
         <button onClick={this.uploadImage}> Upload File </button>
 
         {!!this.state.response && <div>{this.state.response}</div>}
+
+          
+
+
+
       </div>
     );
   }
