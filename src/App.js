@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Amplify, { Interactions, Storage } from 'aws-amplify';
 import { ChatBot, AmplifyTheme } from 'aws-amplify-react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { withAuthenticator, AmplifySignOut, SignOut } from '@aws-amplify/ui-react';
+//import {withAuthenticator} from 'aws-amplify-react';
 
 import awsconfig from './aws-exports';
 import './App.css';
@@ -43,6 +44,7 @@ const myTheme = {
 };
 
 class App extends Component {
+
   state = {
     imageName: "",
     imageFile: "",
@@ -60,7 +62,7 @@ class App extends Component {
         this.setState({ response: "Success, uploading file!" });
       })
       .catch(err => {
-        this.setState({ response: `Cannot upload file: ${err}` });
+        this.setState({ response: `Unable to upload file: ${err}` });
       });
   };
 
@@ -77,6 +79,7 @@ class App extends Component {
 
   render() {
     return (
+  
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to SuppBot!</h1>
@@ -89,11 +92,12 @@ class App extends Component {
           botName="SuppBot"
           welcomeMessage="Welcome! I'm SuppBot, how can I help you today?"
           //onComplete={this.handleComplete.bind(this)}
+          
           clearOnComplete={false}
           conversationModeOn={false}
         />
 
-<h2 className= 'UploadHeader'>Upload your filled form here</h2>
+<h2 className= 'UploadHeader'>Upload your completed form here</h2>
         <input
           type="file"
           //accept="image/png, image/jpeg, pdf" This is used to limit to specific file
@@ -121,12 +125,8 @@ class App extends Component {
 
         {!!this.state.response && <div>{this.state.response}</div>}
 
-          
-
-
-
       </div>
     );
   }
 }
-export default withAuthenticator(App, { includeGreetings: true });
+export default withAuthenticator(App, {includeGreetings:true});
