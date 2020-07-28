@@ -142,19 +142,25 @@ class App extends Component {
         {!!this.state.response && <div>{this.state.response}</div>}
         </div>
 
-        <Particles id="particles" 
-        params={{ 
-          particles: { 
-            number: { 
-              value: 200, 
-              density: { 
-                enable: true, 
-                value_area: 1000, 
-              } 
-            }, 
-          }, 
-        }} 
-      /> 
+        <Particles
+                params={{
+                    "particles": {
+                    "number": {
+                    "value": 90
+                    },
+                    "size": {
+                    "value": 2.5
+                    }
+                },
+                    "interactivity": {
+                    "events": {
+                    "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                    }
+                    }
+                    }
+                }}/>
 
       </div>
     );
