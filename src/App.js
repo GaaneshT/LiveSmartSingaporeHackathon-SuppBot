@@ -3,10 +3,13 @@ import Amplify, { Interactions, Storage } from 'aws-amplify';
 import { ChatBot, AmplifyTheme } from 'aws-amplify-react';
 import { withAuthenticator, AmplifySignOut, SignOut } from '@aws-amplify/ui-react';
 //import {withAuthenticator} from 'aws-amplify-react';
+import Particles from 'react-particles-js';
+
 
 import awsconfig from './aws-exports';
 import './App.css';
 import aws_exports from './aws-exports';
+
 
 Amplify.configure(aws_exports);
 Amplify.configure(awsconfig);
@@ -26,9 +29,6 @@ Amplify.configure({
   }
 });
 
-
-
-
 Storage.configure({
 customPrefix: {public:''}
 })
@@ -36,6 +36,7 @@ customPrefix: {public:''}
 // Imported default theme can be customized by overloading attributes
 const myTheme = {
   ...AmplifyTheme,
+  color:'#00f0fc',
   sectionHeader: {
     ...AmplifyTheme.sectionHeader,
     backgroundColor: '#ff6600'
@@ -81,11 +82,26 @@ class App extends Component {
     return (
   
       <div className="App">
+        
+
+     
         <header className="App-header">
           <h1 className="App-title">Welcome to SuppBot!</h1>
           <h2>Live Smart Singapore Hackathon(ACRA)</h2>
           <h2>By Team SPx</h2>
         </header>
+        <div id="List">
+          <h2>Instructions to submit a waiver appeal</h2>
+            <ol >
+              <li>Ask SuppBot for the link to download the waiver form</li>
+              <li>Submit the form with the uploader below</li>
+              <li>You will then be notified of the status within minutes</li>
+              <li>If you do not receive an email, please double check the email in the form you submitted</li>
+              <li>If you still did not receive an email, Please proceed to contact ACRA</li>
+            </ol>
+        </div>
+        
+
         <ChatBot
           title="SuppBot"
           theme={myTheme}
@@ -96,8 +112,8 @@ class App extends Component {
           clearOnComplete={false}
           conversationModeOn={false}
         />
-
-<h2 className= 'UploadHeader'>Upload your completed form here</h2>
+        <div id="Upload">
+        <h2 className= 'UploadHeader'>Upload your completed form here</h2>
         <input
           type="file"
           //accept="image/png, image/jpeg, pdf" This is used to limit to specific file
@@ -124,6 +140,21 @@ class App extends Component {
         <button onClick={this.uploadImage}> Upload File </button>
 
         {!!this.state.response && <div>{this.state.response}</div>}
+        </div>
+
+        <Particles id="particles" 
+        params={{ 
+          particles: { 
+            number: { 
+              value: 200, 
+              density: { 
+                enable: true, 
+                value_area: 1000, 
+              } 
+            }, 
+          }, 
+        }} 
+      /> 
 
       </div>
     );

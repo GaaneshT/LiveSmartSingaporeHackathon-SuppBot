@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  height: 130vh;
+  height: 300vh;
+  background-image: "C:\Users\Gaanesh\Desktop\Amplify\amplify\src\image003.png";
+  background-repeat: no-repeat;
 }
 
 .App-logo {
@@ -24,8 +26,19 @@
   font-size: 16px;
 }
 
+#List{
+  color: #61dafb;
+  text-align: left;
+  font-weight: bold;
+}
+#Upload{
+  text-align: center;
+}
+
 .App-header {
   background-color: #282c34;
+  /*background-color: white;*/
+  color: white;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -33,14 +46,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(32, 175, 185);
+  background-image: url('https://homepages.cae.wisc.edu/~ece533/images/baboon.png');
+  /*background-repeat: no-repeat;*/
 }
 h3{
   margin:0;
   padding:0;
+  color: #61dafb;
 }
 h2{
   margin:0;
   padding:0;
+  color: #61dafb;
 }
 h1{
   margin:10;
@@ -52,12 +69,17 @@ h1{
 
 .App{
   background-color: #282c34;
+  /*background-color: white;*/
+
 }
 .ChatbotHeader{
   color: #61dafb;
 }
 
 .App-link {
+  color: #61dafb;
+}
+Instructions{
   color: #61dafb;
 }
 
