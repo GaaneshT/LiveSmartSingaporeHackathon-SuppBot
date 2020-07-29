@@ -118,7 +118,7 @@ let params = {
     events: {
       onhover: {
         enable: true,
-        mode: "grab"
+        mode: "repulse"
       },
       
       resize: true
