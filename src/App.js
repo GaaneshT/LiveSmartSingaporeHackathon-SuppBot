@@ -118,17 +118,14 @@ let params = {
     events: {
       onhover: {
         enable: true,
-        mode: "repulse"
+        mode: "grab"
       },
-      onclick: {
-        enable: true,
-        mode: "push"
-      },
+      
       resize: true
     },
     modes: {
       grab: {
-        distance: 400,
+        distance: 200,
         line_linked: {
           opacity: 1
         }
@@ -214,7 +211,7 @@ class App extends Component {
         </div>
         
 
-        <ChatBot
+        <ChatBot id="bot"
           title="SuppBot"
           theme={myTheme}
           botName="SuppBot"
@@ -254,9 +251,7 @@ class App extends Component {
         {!!this.state.response && <div>{this.state.response}</div>}
         </div>
 
-        
-
-        <Particles  width='100vw' height="100vh" className="example" params={params} />
+     <div id="particles-js" ><Particles style={{position: 'absolute',top: 0,left: 0,right: 0,bottom: 0, zIndex: -1}} params={params} /></div>
 
       </div>
     );
