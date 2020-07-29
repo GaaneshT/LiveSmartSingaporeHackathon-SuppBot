@@ -120,12 +120,15 @@ let params = {
         enable: true,
         mode: "repulse"
       },
-      
+      onclick: {
+        enable: true,
+        mode: "push"
+      },
       resize: true
     },
     modes: {
       grab: {
-        distance: 200,
+        distance: 400,
         line_linked: {
           opacity: 1
         }

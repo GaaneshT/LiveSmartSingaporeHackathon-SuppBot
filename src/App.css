@@ -54,7 +54,7 @@
   color:  #61dafb;
   background-image: url('https://homepages.cae.wisc.edu/~ece533/images/baboon.png');
   /*background-repeat: no-repeat;*/
-  position: initial; top: 0; right: 0; bottom: 0; left: 0; z-index: 0;
+  
 }
 h3{
   margin:0;
