@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Amplify, { Interactions, Storage } from 'aws-amplify';
 import { ChatBot, AmplifyTheme } from 'aws-amplify-react';
-import { withAuthenticator, AmplifySignOut, SignOut } from '@aws-amplify/ui-react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 //import {withAuthenticator} from 'aws-amplify-react';
 import Particles from 'react-particles-js';
 
@@ -196,20 +196,22 @@ class App extends Component {
       <div className="App">
         
 
-     
+        <AmplifySignOut button-text="Sign Out"></AmplifySignOut>
         <header className="App-header">
           <h1 className="App-title">Welcome to SuppBot!</h1>
           <h2>Live Smart Singapore Hackathon(ACRA)</h2>
           <h2>By Team SPx</h2>
         </header>
         <div id="List">
-          <h2>Instructions to submit a waiver appeal</h2>
+          <h2 className="instructions">Instructions to submit a waiver appeal</h2>
             <ol >
               <li>Ask SuppBot for the link to download the waiver form</li>
               <li>Submit the form with the uploader below</li>
               <li>You will then be notified of the status within minutes</li>
               <li>If you do not receive an email, please double check the email in the form you submitted</li>
               <li>If you still did not receive an email, Please proceed to contact ACRA</li>
+              <li>Alternatively, you can choose to schedule an appointment with ACRA by using SuppBot</li>
+              <li>Just type "Schedule an appointment" and answer the prompts given by the bot</li>
             </ol>
         </div>
         
@@ -255,8 +257,11 @@ class App extends Component {
         </div>
 
      <div id="particles-js" ><Particles style={{position: 'absolute',top: 0,left: 0,right: 0,bottom: 0, zIndex: -1}} params={params} /></div>
+     
+
 
       </div>
+      
     );
   }
 }

@@ -14,6 +14,15 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
+amplify-authenticator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -31,14 +40,19 @@
 }
 */
 
-
+.instructions{
+  color: #221709;
+}
 #List{
-  color: black;
-  width: 600px;
+  color: #1f160a;
+  
+  width: 740px;
   text-align: left;
   font-weight: bold;
-  border: 3px dashed #61dafb;
+  padding-left: 10px;
+  border: 3px ridge black;
   background-color:burlywood;
+  /*background-color:white;*/
 }
 #Upload{
   text-align: center;
