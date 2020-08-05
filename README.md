@@ -15,7 +15,7 @@ Front end hosted by AWS Amplify consist of 3 sections. SuppBot, Instructions and
 The form would then be processed on the backend using various AWS services. The outcome of the process would determine the email that would be sent out to the customer, meanwhile the customer data are also being stored into a seperate database from before.
 
 ## 2. Architecture of Solution
-
+<img src="/Images/Archi.PNG" alt="Archi" width="1000"/>
 
 ## 3. Setup and Explanation
 #### Front End
