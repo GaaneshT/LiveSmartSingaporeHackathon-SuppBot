@@ -6,7 +6,7 @@ Description, Setup and Explanation
 2. Architecture of Solution
 2. Setup and Explanation
 3. Results
-4. Built with AWS Services:
+4. Built with:
 5. Credits and Contact
 
 ## 1. Description
@@ -147,7 +147,7 @@ Interact with SuppBot to address any enquries. Feel free to book an appointment 
 
 Upload a form through AWS Amplify, give it a few minutes for the form to be processed. Afterwards an email should be sent to you regarding the outcome. To view the customer's data, navigate to DynamoDB and select the table "CustomerData".
 
-## 5. Built with AWS Services:
+## 5. Built with:
 - Amplify
 - Cognito
 - Lex
