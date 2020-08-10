@@ -1,5 +1,4 @@
 # SuppBot
-Description, Setup and Explanation
 
 ## Contents
 1. Description
