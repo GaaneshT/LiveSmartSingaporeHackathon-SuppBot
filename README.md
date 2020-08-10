@@ -1,5 +1,5 @@
 # SuppBot
-Things that you need to know
+AWS Services to address ACRA's pain points for Live Smart Singapore Hackathon 2020
 
 ## Contents
 1. Description
